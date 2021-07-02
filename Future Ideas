@@ -1,0 +1,14 @@
+***Format concept for this File***
+##Idea Title - 'your username'
+*Goal behind Idea*
+- Idea Description (in bullet points of paragraph form)
+
+## Mentor System - dattpatel99:
+*To encourage helping others and appriciating those who helped*
+- Each user is a mentor and a student
+- Each user starts with common number of points reset at the end of each college term.
+- Each user can give mentor points and receive mentor points
+- Initially: Points are transfered through bot commands using student username and mentor username. 
+  _ In future maybe we can implment passing of points through messages in a channel using emojis.
+- THERE IS NO RANKING OR COMPARING SYSTEM. 
+- This is purely for a user to track how much knowledge has improved, how helpful they have been or how enthusiastic they have been to ask and learn something new.
