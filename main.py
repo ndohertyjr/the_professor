@@ -3,6 +3,8 @@ import discord
 # imports for token
 from dotenv import load_dotenv
 import os
+# import to keep server running
+from keep_online import keep_online
 
 # load token
 load_dotenv('.env')
@@ -20,7 +22,7 @@ async def on_ready():
 
 # Bot greeting test feature
 
-#
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -32,6 +34,10 @@ async def on_message(message):
 
 
 # ****MAIN CODE BODY GOES ABOVE HERE****
+
+
+# Respond to pings to keep server running using uptimerobot.com
+keep_online()
 
 # Connect to the server
 client.run(TOKEN)
