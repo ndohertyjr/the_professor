@@ -7,12 +7,10 @@ A python bot built for moderating the Discord server CS Hangout for SNHU student
 
 ## Contributing Guide
 
-1. Fork this repository so you have your own copy. This will allow you to experiment and make changes without affecting this main project.
+1. Clone this repository so you have your own local copy of the project
 
-2. Clone the forked repository you just made to your machine.
+2. Checkout a new branch with the feature you intend on implementing.
 
 3. Start coding, making changes, and new implementing features. When you're done be sure to commit your changes with good messages documenting what you've done.
 
-4. Push your work to the forked repository you've made.
-
-5. Finally from that forked repository open a pull request to have your changes reviewed and potentially merged with the main project.
+4. Push your branch so that it can be compared and pulled into the main branch.
