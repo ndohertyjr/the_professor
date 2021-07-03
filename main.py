@@ -12,17 +12,15 @@ TOKEN = os.getenv("TOKEN")
 client = discord.Client()
 
 # Confirm bot is online
-
-
 @client.event
 async def on_ready():
     print(f'{client.user} is online and connected to the server.')
 
+
 # ****MAIN CODE BODY GOES BELOW HERE****
 
+
 # Bot greeting test feature
-
-
 @client.event
 async def on_message(message):
     if message.author == client.user:
