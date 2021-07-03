@@ -1,0 +1,26 @@
+{
+  "name": "theprofessor",
+  "version": "1.0.0",
+  "description": "A python bot built for moderating the Discord server CS Hangout for SNHU students.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndohertyjr/the_professor.git"
+  },
+  "keywords": [],
+  "author": "CS Hangout",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ndohertyjr/the_professor/issues"
+  },
+  "homepage": "https://github.com/ndohertyjr/the_professor#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
+}
