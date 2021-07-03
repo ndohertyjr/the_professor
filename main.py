@@ -11,6 +11,8 @@ client = discord.Client()
 
 # Confirm bot is online
 
+# this is a test comment
+
 
 @client.event
 async def on_ready():
