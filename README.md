@@ -1,16 +1,21 @@
 # the_professor
-A python bot built for moderating the Discord server CS Hangout for SNHU students.
+A python bot built for moderating the Discord server for SNHU CS/IT/Cyber Security students, CS Hangout.
 
 ## Documentation
 
 * [Discord.py API Reference](https://discordpy.readthedocs.io/en/stable/api.html)
+* [Flask API Reference](https://flask.palletsprojects.com/en/2.0.x/)
 
 ## Contributing Guide
 
 1. Clone this repository so you have your own local copy of the project
 
-2. Checkout a new branch with the feature you intend on implementing.
+2. Visit the projects section to add a feature request or view the features that are awaiting development. 
 
-3. Start coding, making changes, and new implementing features. When you're done be sure to commit your changes with good messages documenting what you've done.
+3. Create or checkout a branch with the feature you intend on implementing.
 
-4. Push your branch so that it can be compared and pulled into the main branch.
+4. Start coding, making changes, and new implementing features. When you're done be sure to commit your changes with good messages documenting what you've done.
+
+5. Push your branch so that it can be compared and pulled into the main branch.
+
+6. Once another contributor has reviewed your code, the branch can be merged with main.
