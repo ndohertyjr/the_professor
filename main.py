@@ -1,9 +1,15 @@
 # import discord api
 import discord
 from discord.ext import commands
+# import random
+import random
 # imports for token
 from dotenv import load_dotenv
 import os
+
+
+# Server imports
+from server import keep_online
 
 # load token
 load_dotenv('.env')
@@ -15,6 +21,7 @@ rules_channel = None
 rules_message_id = None
 new_student_role = None
 
+# Confirm bot is online
 @bot.event
 async def on_ready():
     print(f'{bot.user} is online and connected to the server.')
@@ -23,6 +30,7 @@ async def on_ready():
     rules_message_history = await rules_channel.history(limit = 1).flatten()
     rules_message_id = rules_message_history[0].id
     new_student_role = discord.utils.get(bot.get_guild(860895351249829958).roles, name="New Student")
+
 
 # ****MAIN CODE BODY GOES BELOW HERE****
 
@@ -42,14 +50,32 @@ async def on_raw_reaction_add(payload):
     else:
         print("Invalid Option")
 
-
+        
 # Bot greeting test feature
-
 @bot.command()
 async def hello(ctx):
     await ctx.send('I AM ALIVE')
 
+
+#Joke dispenser
+@bot.command()
+async def joke(ctx):
+    jokes = []
+    # import jokes into list
+    with open('jokes.txt', 'r') as jokeFile:
+        jokes = jokeFile.readlines()
+
+    # choose random joke
+    random_choice = random.randrange(0, len(jokes))
+    jokeChoice = jokes[random_choice]
+    await ctx.send(jokeChoice)
+
+
 # ****MAIN CODE BODY GOES ABOVE HERE****
 
-# Connect to the server
+# Keep thread open on the server
+keep_online()
+
+# Run bot
 bot.run(TOKEN)
+
