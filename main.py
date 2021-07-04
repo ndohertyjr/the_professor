@@ -22,7 +22,7 @@ async def on_ready():
     rules_channel = await discord.utils.get(bot.get_all_channels(), name='rules')
     rules_message_history = await rules_channel.history(limit = 1).flatten()
     rules_message_id = rules_message_history[0].id
-    test_role = await discord.utils.get(bot.get_guild(860919967749505025).roles, name="New Student")
+    new_studen_role = await discord.utils.get(bot.get_guild(860895351249829958).roles, name="New Student")
 
 # ****MAIN CODE BODY GOES BELOW HERE****
 
@@ -36,7 +36,7 @@ async def on_raw_reaction_add(payload):
     
     if (payload.emoji.name == '👍'):
         print(payload.member.name + " accepted the rules")
-        await payload.member.add_roles(test_role, reason=None, atomic=True)
+        await payload.member.add_roles(new_studen_role, reason=None, atomic=True)
     elif (payload.emoji.name == '👎'):
         print(payload.member.name + " declined the rules")
     else:
