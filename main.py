@@ -14,6 +14,7 @@ TOKEN = os.getenv("TOKEN")
 bot = commands.Bot(command_prefix='!')
 
 
+
 # Confirm bot is online
 @bot.event
 async def on_ready():
@@ -21,6 +22,7 @@ async def on_ready():
 
 
 # ****MAIN CODE BODY GOES BELOW HERE****
+
 
 # Bot greeting test feature
 @bot.command()
@@ -32,5 +34,7 @@ async def hello(ctx):
 
 # Keep thread open on the server
 keep_online()
-# Connect to the server
+
+# Run bot
 bot.run(TOKEN)
+
