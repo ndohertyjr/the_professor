@@ -13,16 +13,16 @@ bot = commands.Bot(command_prefix='!')
 # Confirm bot is online
 rules_channel = None 
 rules_message_id = None
-test_role = None
+new_student_role = None
 
 @bot.event
 async def on_ready():
     print(f'{bot.user} is online and connected to the server.')
-    global rules_channel, rules_message_id, test_role
-    rules_channel = await discord.utils.get(bot.get_all_channels(), name='rules')
+    global rules_channel, rules_message_id, new_student_role
+    rules_channel = discord.utils.get(bot.get_all_channels(), name='rules')
     rules_message_history = await rules_channel.history(limit = 1).flatten()
     rules_message_id = rules_message_history[0].id
-    new_student_role = await discord.utils.get(bot.get_guild(860895351249829958).roles, name="New Student")
+    new_student_role = discord.utils.get(bot.get_guild(860895351249829958).roles, name="New Student")
 
 # ****MAIN CODE BODY GOES BELOW HERE****
 
