@@ -22,7 +22,7 @@ async def on_ready():
     rules_channel = await discord.utils.get(bot.get_all_channels(), name='rules')
     rules_message_history = await rules_channel.history(limit = 1).flatten()
     rules_message_id = rules_message_history[0].id
-    test_role = await discord.utils.get(bot.get_guild(860919967749505025).roles, name="TestRole")
+    test_role = await discord.utils.get(bot.get_guild(860919967749505025).roles, name="New Student")
 
 # ****MAIN CODE BODY GOES BELOW HERE****
 
