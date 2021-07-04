@@ -22,6 +22,8 @@ async def on_ready():
 
 # Bot Initial Rules Agreement
 rules_message_id = 860962384276226078
+role = discord.abc.Snowflake
+role.id = 861064435895107585
 @bot.event
 async def on_raw_reaction_add(payload):
     print(payload)
@@ -31,6 +33,7 @@ async def on_raw_reaction_add(payload):
     
     if (payload.emoji.name == '👍'):
         print(payload.member.name + " accepted the rules")
+        await payload.member.add_roles(role, reason=None, atomic=True)
     elif (payload.emoji.name == '👎'):
         print(payload.member.name + " declined the rules")
     else:
