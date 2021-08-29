@@ -14,6 +14,7 @@ from server import keep_online
 # load token
 load_dotenv('.env')
 TOKEN = os.getenv("TOKEN")
+GUILD_ID = os.getenv("Guild_ID")
 bot = commands.Bot(command_prefix='!')
 
 # Confirm bot is online
@@ -29,7 +30,7 @@ async def on_ready():
     rules_channel = discord.utils.get(bot.get_all_channels(), name='rules')
     rules_message_history = await rules_channel.history(limit = 1).flatten()
     rules_message_id = rules_message_history[0].id
-    new_student_role = discord.utils.get(bot.get_guild(860895351249829958).roles, name="New Student")
+    new_student_role = discord.utils.get(bot.get_guild(int (GUILD_ID)).roles, name="New Student")
 
 
 # ****MAIN CODE BODY GOES BELOW HERE****
