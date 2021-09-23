@@ -19,32 +19,16 @@ A python bot built for moderating the Discord server for SNHU CS/IT/Cyber Securi
 5. Push your branch so that it can be compared and pulled into the main branch.
 
 6. Once another contributor has reviewed your code, the branch can be merged with main.
+## Local Bot Setup
 
-## Setup Prerequisites
+* [Wiki Link](https://github.com/ndohertyjr/the_professor/wiki)
 
-1. Install virtualenv library:
-    a. Linux: python3 -m pip install --user virtualenv
-    b. Windows: py -m pip install --user virtualenv
+* [Video Link](https://www.youtube.com/watch?v=SPTfmiYiuok&t=112s)
 
-2. Follow "Bot setup"
-
-3. Follow "Local machine setup"
-
-## Bot Setup
-
-* [Local Bot Creation](https://www.youtube.com/watch?v=SPTfmiYiuok&t=112s)
 ## Local machine setup
 
-1. Create virtual-environment by running "python3 -m venv env"
-
-2. Switch interpreters to the virtual-env
-
-3. Install required libraries through "pip install -r requirements.txt"
-
-4. Create a file called ".env" (This is only for local data)
-
-5. Copy information from the like "example.env", paste in ".env", and fill in the required information.
+* [Instructions for setup](https://github.com/ndohertyjr/the_professor/wiki/Local-Machine-Instructions#setup-instructions)
 
 ## Running the Bot
 
-* To run the bot run the main.py file
+* [Instruction to run bot](https://github.com/ndohertyjr/the_professor/wiki/Local-Machine-Instructions#run-instructions)
