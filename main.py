@@ -70,6 +70,14 @@ async def joke(ctx):
     jokeChoice = jokes[random_choice]
     await ctx.send(jokeChoice)
 
+# Github help command
+@bot.command()
+async def githubHelp(ctx):
+    embedMsg = discord.Embed(
+        title="Here's where you can find the GitHub repository for our open source server bot project!",
+        description="[The Professor Discord Bot Repository](https://github.com/ndohertyjr/the_professor)")
+    await ctx.send(embed=embedMsg)
+
 
 # ****MAIN CODE BODY GOES ABOVE HERE****
 
