@@ -5,6 +5,7 @@ from discord.ext import commands
 import random
 # imports for token
 from dotenv import load_dotenv
+import json
 import os
 
 
@@ -74,10 +75,12 @@ async def joke(ctx):
 # Github help command
 @bot.command()
 async def githubHelp(ctx):
-    embedMsg = discord.Embed(
-        title="Here's where you can find the GitHub repository for our open source server bot project!",
+    with open('messages.json') as jsonMessages:
+        helpMessage = json.load(jsonMessages)
+    embedHelpMsg = discord.Embed(
+        title=helpMessage['helpMessage'],
         description="[The Professor Discord Bot Repository](https://github.com/ndohertyjr/the_professor)")
-    await ctx.send(embed=embedMsg)
+    await ctx.send(embed=embedHelpMsg)
 
 
 # ****MAIN CODE BODY GOES ABOVE HERE****
