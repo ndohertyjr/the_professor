@@ -1,16 +1,17 @@
 # import discord api
 import discord
 from discord.ext import commands
-# import random
-import random
+
 # imports for token
 from dotenv import load_dotenv
 import json
 import os
+from cogs.greeting import Greeting
+from cogs.jokeDispenser import JokeDispenser
 
 
 # Server imports
-from server import keep_online
+#from server import keep_online
 
 # load token
 load_dotenv('.env')
@@ -54,23 +55,11 @@ async def on_raw_reaction_add(payload):
 
         
 # Bot greeting test feature
-@bot.command()
-async def hello(ctx):
-    await ctx.send('I AM ALIVE')
+bot.add_cog(Greeting(bot))
 
 
 #Joke dispenser
-@bot.command()
-async def joke(ctx):
-    jokes = []
-    # import jokes into list
-    with open('jokes.txt', 'r') as jokeFile:
-        jokes = jokeFile.readlines()
-
-    # choose random joke
-    random_choice = random.randrange(0, len(jokes))
-    jokeChoice = jokes[random_choice]
-    await ctx.send(jokeChoice)
+bot.add_cog(JokeDispenser(bot))
 
 # Github help command
 @bot.command()
@@ -86,7 +75,7 @@ async def githubHelp(ctx):
 # ****MAIN CODE BODY GOES ABOVE HERE****
 
 # Keep thread open on the server
-keep_online()
+#keep_online()
 
 # Run bot
 bot.run(TOKEN)
