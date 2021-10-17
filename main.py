@@ -14,42 +14,20 @@ import os
 load_dotenv('.env')
 TOKEN = os.getenv("TOKEN")
 GUILD_ID = os.getenv("Guild_ID")
+RULES_MESSAGE_ID = os.getenv("RulesMessageId")
 bot = commands.Bot(command_prefix='!')
 
-# Confirm bot is online
-rules_channel = None 
-rules_message_id = None
-new_student_role = None
 
 # Confirm bot is online
 @bot.event
 async def on_ready():
     print(f'{bot.user} is online and connected to the server.')
-    global rules_channel, rules_message_id, new_student_role
-    rules_channel = discord.utils.get(bot.get_all_channels(), name='rules')
-    rules_message_history = await rules_channel.history(limit = 1).flatten()
-    rules_message_id = rules_message_history[0].id
-    new_student_role = discord.utils.get(bot.get_guild(int (GUILD_ID)).roles, name="New Student")
 
 
 # ****MAIN CODE BODY GOES BELOW HERE****
 
 # Bot Initial Rules Agreement
-
-@bot.event
-async def on_raw_reaction_add(payload):
-
-    if (payload.message_id != rules_message_id):
-        return
-    
-    if (payload.emoji.name == '👍'):
-        print(payload.member.name + " accepted the rules")
-        await payload.member.add_roles(new_student_role, reason=None, atomic=True)
-    elif (payload.emoji.name == '👎'):
-        print(payload.member.name + " declined the rules")
-    else:
-        print("Invalid Option")
-
+bot.load_extension('cogs.rulesagreement')
         
 # Bot greeting test feature
 bot.load_extension('cogs.greeting')
