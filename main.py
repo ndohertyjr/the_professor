@@ -4,7 +4,6 @@ from discord.ext import commands
 
 # imports for token
 from dotenv import load_dotenv
-import json
 import os
 
 
@@ -60,14 +59,7 @@ bot.load_extension('cogs.greeting')
 bot.load_extension('cogs.jokeDispenser')
 
 # Github help command
-@bot.command()
-async def githubHelp(ctx):
-    with open('messages.json') as jsonMessages:
-        helpMessage = json.load(jsonMessages)
-    embedHelpMsg = discord.Embed(
-        title=helpMessage['helpMessage'],
-        description="[The Professor Discord Bot Repository](https://github.com/ndohertyjr/the_professor)")
-    await ctx.send(embed=embedHelpMsg)
+bot.load_extension('cogs.githubHelp')
 
 
 # ****MAIN CODE BODY GOES ABOVE HERE****
