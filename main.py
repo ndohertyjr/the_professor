@@ -1,5 +1,4 @@
 # import discord api
-import discord
 from discord.ext import commands
 
 # imports for token
@@ -8,7 +7,7 @@ import os
 
 
 # Server imports
-#from server import keep_online
+from server import keep_online
 
 # load token
 load_dotenv('.env')
@@ -45,7 +44,7 @@ bot.load_extension('cogs.githubHelp')
 # ****MAIN CODE BODY GOES ABOVE HERE****
 
 # Keep thread open on the server
-#keep_online()
+keep_online()
 
 # Run bot
 bot.run(TOKEN)
