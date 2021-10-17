@@ -26,12 +26,14 @@ async def on_ready():
 
 # ****MAIN CODE BODY GOES BELOW HERE****
 
+# Admin
+bot.load_extension('cogs.admin')
+
 # Bot Initial Rules Agreement
 bot.load_extension('cogs.rulesagreement')
         
 # Bot greeting test feature
 bot.load_extension('cogs.greeting')
-
 
 #Joke dispenser
 bot.load_extension('cogs.jokeDispenser')

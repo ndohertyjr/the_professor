@@ -1,5 +1,4 @@
 # import discord api
-import discord
 from discord.ext import commands
 
 class Greeting(commands.Cog):
