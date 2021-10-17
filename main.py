@@ -6,8 +6,6 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import json
 import os
-from cogs.greeting import Greeting
-from cogs.jokeDispenser import JokeDispenser
 
 
 # Server imports
@@ -55,11 +53,11 @@ async def on_raw_reaction_add(payload):
 
         
 # Bot greeting test feature
-bot.add_cog(Greeting(bot))
+bot.load_extension('cogs.greeting')
 
 
 #Joke dispenser
-bot.add_cog(JokeDispenser(bot))
+bot.load_extension('cogs.jokeDispenser')
 
 # Github help command
 @bot.command()

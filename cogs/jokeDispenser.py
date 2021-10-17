@@ -20,3 +20,6 @@ class JokeDispenser(commands.Cog):
         random_choice = random.randrange(0, len(jokes))
         jokeChoice = jokes[random_choice]
         await ctx.send(jokeChoice)
+
+def setup(bot):
+    bot.add_cog(JokeDispenser(bot))

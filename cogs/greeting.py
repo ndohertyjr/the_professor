@@ -9,3 +9,7 @@ class Greeting(commands.Cog):
     @commands.command()
     async def hello(self, ctx):
         await ctx.send('I AM ALIVE')
+
+def setup(bot):
+    bot.add_cog(Greeting(bot))
+    
