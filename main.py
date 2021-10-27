@@ -9,8 +9,11 @@ import json
 import os
 
 
+
 # Server imports
 from server import keep_online
+from model.database import create_connection, create_user_table
+
 
 # load token
 load_dotenv('.env')
@@ -31,7 +34,8 @@ async def on_ready():
     rules_channel = discord.utils.get(bot.get_all_channels(), name='rules')
     rules_message_history = await rules_channel.history(limit = 1).flatten()
     rules_message_id = rules_message_history[0].id
-    new_student_role = discord.utils.get(bot.get_guild(int (GUILD_ID)).roles, name="New Student")
+    #FIXME new_student_role = discord.utils.get(bot.get_guild(int (GUILD_ID)).roles, name="New Student")
+
 
 
 # ****MAIN CODE BODY GOES BELOW HERE****
@@ -64,7 +68,7 @@ async def hello(ctx):
 async def joke(ctx):
     jokes = []
     # import jokes into list
-    with open('jokes.txt', 'r') as jokeFile:
+    with open('data/jokes.txt', 'r') as jokeFile:
         jokes = jokeFile.readlines()
 
     # choose random joke
@@ -75,7 +79,7 @@ async def joke(ctx):
 # Github help command
 @bot.command()
 async def githubHelp(ctx):
-    with open('messages.json') as jsonMessages:
+    with open('data/messages.json') as jsonMessages:
         helpMessage = json.load(jsonMessages)
     embedHelpMsg = discord.Embed(
         title=helpMessage['helpMessage'],
@@ -84,9 +88,12 @@ async def githubHelp(ctx):
 
 
 # ****MAIN CODE BODY GOES ABOVE HERE****
-
+#FIXME
 # Keep thread open on the server
 keep_online()
+
+create_connection()
+create_user_table()
 
 # Run bot
 bot.run(TOKEN)
