@@ -13,6 +13,7 @@ import os
 # Server imports
 from server import keep_online
 from model.database import create_connection, create_user_table
+from controllers.user_table import *
 
 
 # load token
@@ -34,6 +35,9 @@ async def on_ready():
     rules_channel = discord.utils.get(bot.get_all_channels(), name='rules')
     rules_message_history = await rules_channel.history(limit = 1).flatten()
     rules_message_id = rules_message_history[0].id
+    # ensure db is correct
+    create_connection()
+    create_user_table()
     #FIXME new_student_role = discord.utils.get(bot.get_guild(int (GUILD_ID)).roles, name="New Student")
 
 
@@ -86,14 +90,59 @@ async def githubHelp(ctx):
         description="[The Professor Discord Bot Repository](https://github.com/ndohertyjr/the_professor)")
     await ctx.send(embed=embedHelpMsg)
 
+# FIXME REMOVE SQL TESTING COMMANDS
+# TEST COMMANDS FOR SQLITE DB
+@bot.command()
+async def testadd(ctx):
+    add_user(1111, "thegunnersdream", "admin", 0)
+    add_user(2222, "test", "admin", 0)
+    add_user(3333, "thegunnersdream", "admin", 0)
+    add_user(4444, "buddy", "tester", 100)
+    add_user(5555, "butthead", "dude", 69)
+    add_user(6666, "beavis", "other dude", 420)
+
+
+@bot.command()
+async def testfind(ctx):
+    get_user_id("thegunnersdream")
+
+@bot.command()
+async def testfindall(ctx):
+    print(get_all_usernames())
+
+
+@bot.command()
+async def testfindone(ctx):
+    print(get_username(3333))
+
+@bot.command()
+async def testfindrole(ctx):
+    print(get_user_role(4444))
+
+@bot.command()
+async def testfindpoints(ctx):
+    print(get_user_points(5555))
+
+@bot.command()
+async def testupdatepoints(ctx):
+    print(get_user_points(2222), "Old points")
+    update_user_points(2222, -25)
+    print(get_user_points(2222), "New points")
+
+@bot.command()
+async def testdeleteall(ctx):
+    for i in get_all_usernames():
+        user = get_user_id(i)
+        delete_user(user)
+    print("Done!")
+
 
 # ****MAIN CODE BODY GOES ABOVE HERE****
 #FIXME
 # Keep thread open on the server
 keep_online()
 
-create_connection()
-create_user_table()
+
 
 # Run bot
 bot.run(TOKEN)

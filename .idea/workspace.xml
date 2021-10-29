@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Created joke() that responds to the user command !joke to display a random joke from a list of jokes in the corresponding .txt file.">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jokes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/jokes.txt" afterDir="false" />
+    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Reorganized file structure to add model and controller directories.  Created model for db and user table.  Added unfinished controller functions.">
+      <change afterPath="$PROJECT_DIR$/controllers/user_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/controller.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/messages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625373203937</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Reorganized file structure to add model and controller directories.  Created model for db and user table.  Added unfinished controller functions.">
+      <created>1635310017134</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1635310017134</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,6 +196,7 @@
     <MESSAGE value="Created keep_online.py to respond to pings from Uptimerobot.com to keep the server active." />
     <MESSAGE value="Added TODOs for CRUD activities in server.py" />
     <MESSAGE value="Created joke() that responds to the user command !joke to display a random joke from a list of jokes in the corresponding .txt file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created joke() that responds to the user command !joke to display a random joke from a list of jokes in the corresponding .txt file." />
+    <MESSAGE value="Reorganized file structure to add model and controller directories.  Created model for db and user table.  Added unfinished controller functions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganized file structure to add model and controller directories.  Created model for db and user table.  Added unfinished controller functions." />
   </component>
 </project>

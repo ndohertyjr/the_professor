@@ -37,6 +37,7 @@ def create_user_table():
             )    
         ''')
         db.commit()
+        print("USER TABLE EXISTS!")
 
     except Error as e:
         print(e)
