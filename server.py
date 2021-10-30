@@ -2,8 +2,11 @@
 
 from flask import Flask
 from threading import Thread
+from dotenv import load_dotenv
+import os
 
 app = Flask('')
+IP_ADDRESS = os.getenv("IP")
 
 
 # Response to all server requests
@@ -15,8 +18,9 @@ def home():
 
 
 def run():
-    # TODO Potentially add reloader to refresh updates without manually restarting the server
-    app.run(host='0.0.0.0', port=8080)
+    # TODO Potentially add reloader to refresh updates without manually restarting the server, fix IP
+    print(IP_ADDRESS)
+    app.run(host=IP_ADDRESS, port=8080)
 
 
 def keep_online():

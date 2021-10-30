@@ -13,7 +13,7 @@ class JokeDispenser(commands.Cog):
     async def joke(self, ctx):
         jokes = []
         # import jokes into list
-        with open('jokes.txt', 'r') as jokeFile:
+        with open('jokes.json', 'r') as jokeFile:
             jokes = jokeFile.readlines()
 
         # choose random joke
