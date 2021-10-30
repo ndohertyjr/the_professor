@@ -130,4 +130,4 @@ dmypy.json
 .pyre/
 
 # Database
-theProfessor.db
+*.db
