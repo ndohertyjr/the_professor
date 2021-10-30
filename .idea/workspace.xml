@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Updated model to include a Jokes table.  Created controller to handle access to Jokes table.  Implemented CRUD functions for Jokes controller. Created cog for SQL command testing.">
+    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Updated example.env">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.env" beforeDir="false" afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635614646068</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updated example.env">
+      <created>1635615524909</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1635615524909</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,6 +208,7 @@
     <MESSAGE value="Created joke() that responds to the user command !joke to display a random joke from a list of jokes in the corresponding .txt file." />
     <MESSAGE value="Reorganized file structure to add model and controller directories.  Created model for db and user table.  Added unfinished controller functions." />
     <MESSAGE value="Updated model to include a Jokes table.  Created controller to handle access to Jokes table.  Implemented CRUD functions for Jokes controller. Created cog for SQL command testing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated model to include a Jokes table.  Created controller to handle access to Jokes table.  Implemented CRUD functions for Jokes controller. Created cog for SQL command testing." />
+    <MESSAGE value="Updated example.env" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated example.env" />
   </component>
 </project>
