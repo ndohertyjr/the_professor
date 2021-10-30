@@ -1,140 +1,58 @@
 # import discord api
-import discord
 from discord.ext import commands
-# import random
-import random
+
 # imports for token
 from dotenv import load_dotenv
-import json
 import os
-
 
 
 # Server imports
 from server import keep_online
-from model.database import create_connection, create_user_table
-from controllers.user_table import *
+from model.database import *
+from controllers.userTable import *
+from controllers.jokesTable import *
 
 
 # load token
 load_dotenv('.env')
 TOKEN = os.getenv("TOKEN")
 GUILD_ID = os.getenv("Guild_ID")
+RULES_MESSAGE_ID = os.getenv("RulesMessageId")
 bot = commands.Bot(command_prefix='!')
 
-# Confirm bot is online
-rules_channel = None 
-rules_message_id = None
-new_student_role = None
 
 # Confirm bot is online
 @bot.event
 async def on_ready():
     print(f'{bot.user} is online and connected to the server.')
-    global rules_channel, rules_message_id, new_student_role
-    rules_channel = discord.utils.get(bot.get_all_channels(), name='rules')
-    rules_message_history = await rules_channel.history(limit = 1).flatten()
-    rules_message_id = rules_message_history[0].id
-    # ensure db is correct
+    #Create DB and Tables if needed
     create_connection()
     create_user_table()
-    #FIXME new_student_role = discord.utils.get(bot.get_guild(int (GUILD_ID)).roles, name="New Student")
+    create_jokes_table()
+    add_jokes()
 
 
+''' 
+****MAIN CODE BODY GOES BELOW HERE**** 
+'''
 
-# ****MAIN CODE BODY GOES BELOW HERE****
+# Admin
+bot.load_extension('cogs.admin')
 
 # Bot Initial Rules Agreement
+bot.load_extension('cogs.rulesagreement')
 
-@bot.event
-async def on_raw_reaction_add(payload):
-
-    if (payload.message_id != rules_message_id):
-        return
-    
-    if (payload.emoji.name == '👍'):
-        print(payload.member.name + " accepted the rules")
-        await payload.member.add_roles(new_student_role, reason=None, atomic=True)
-    elif (payload.emoji.name == '👎'):
-        print(payload.member.name + " declined the rules")
-    else:
-        print("Invalid Option")
-
-        
 # Bot greeting test feature
-@bot.command()
-async def hello(ctx):
-    await ctx.send('I AM ALIVE')
+bot.load_extension('cogs.greeting')
 
-
-#Joke dispenser
-@bot.command()
-async def joke(ctx):
-    jokes = []
-    # import jokes into list
-    with open('data/jokes.txt', 'r') as jokeFile:
-        jokes = jokeFile.readlines()
-
-    # choose random joke
-    random_choice = random.randrange(0, len(jokes))
-    jokeChoice = jokes[random_choice]
-    await ctx.send(jokeChoice)
+# Joke dispenser
+bot.load_extension('cogs.jokeDispenser')
 
 # Github help command
-@bot.command()
-async def githubHelp(ctx):
-    with open('data/messages.json') as jsonMessages:
-        helpMessage = json.load(jsonMessages)
-    embedHelpMsg = discord.Embed(
-        title=helpMessage['helpMessage'],
-        description="[The Professor Discord Bot Repository](https://github.com/ndohertyjr/the_professor)")
-    await ctx.send(embed=embedHelpMsg)
+bot.load_extension('cogs.githubHelp')
 
-# FIXME REMOVE SQL TESTING COMMANDS
-# TEST COMMANDS FOR SQLITE DB
-@bot.command()
-async def testadd(ctx):
-    add_user(1111, "thegunnersdream", "admin", 0)
-    add_user(2222, "test", "admin", 0)
-    add_user(3333, "thegunnersdream", "admin", 0)
-    add_user(4444, "buddy", "tester", 100)
-    add_user(5555, "butthead", "dude", 69)
-    add_user(6666, "beavis", "other dude", 420)
-
-
-@bot.command()
-async def testfind(ctx):
-    get_user_id("thegunnersdream")
-
-@bot.command()
-async def testfindall(ctx):
-    print(get_all_usernames())
-
-
-@bot.command()
-async def testfindone(ctx):
-    print(get_username(3333))
-
-@bot.command()
-async def testfindrole(ctx):
-    print(get_user_role(4444))
-
-@bot.command()
-async def testfindpoints(ctx):
-    print(get_user_points(5555))
-
-@bot.command()
-async def testupdatepoints(ctx):
-    print(get_user_points(2222), "Old points")
-    update_user_points(2222, -25)
-    print(get_user_points(2222), "New points")
-
-@bot.command()
-async def testdeleteall(ctx):
-    for i in get_all_usernames():
-        user = get_user_id(i)
-        delete_user(user)
-    print("Done!")
+# SQL DB testing commands
+bot.load_extension('cogs.sqlTesting')
 
 
 # ****MAIN CODE BODY GOES ABOVE HERE****

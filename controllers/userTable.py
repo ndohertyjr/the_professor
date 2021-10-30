@@ -9,14 +9,20 @@ Controls access to the user table in the database
 """
 
 
+'''
+CREATE FUNCTION
+'''
+
+
 # Verify user does not exist in table, then add user
 def add_user(user_id, username, role, points):
 
     db = get_db()
+    cursor = db.cursor()
+
     query = ''' INSERT INTO users(id,username,role,points)
                 VALUES(?,?,?,?) '''
     user = (user_id, username, role, points)
-    cursor = db.cursor()
 
     if user_exists(cursor, user_id):
         print("User already exists")
@@ -31,15 +37,9 @@ def add_user(user_id, username, role, points):
     db.close()
 
 
-# Validation function to confirm if user exists in DB
-def user_exists(cursor, user_id):
-    query = ''' SELECT id FROM users WHERE id=? '''
-    cursor.execute(query, (user_id,))
-    results = cursor.fetchone()
-    if results:
-        return True
-    else:
-        return False
+'''
+READ FUNCTIONS
+'''
 
 
 # Get user id from username
@@ -59,7 +59,7 @@ def get_user_id(username):
 def get_all_usernames():
     db = get_db()
     cursor = db.cursor()
-    query = ''' SELECT username FROM users ORDER BY username ASC'''
+    query = ''' SELECT username FROM users ORDER BY username COLLATE NOCASE ASC'''
     cursor.execute(query)
     all_users = []
     for username in cursor.fetchall():
@@ -104,9 +104,46 @@ def get_user_points(user_id):
 
     return points
 
-# FIXME update user name needed?
-def update_user_name(user_id):
-    pass
+
+'''
+UPDATE FUNCTIONS
+'''
+
+
+# updates the username associated with user id
+def update_user_name(user_id, new_username):
+    db = get_db()
+    cursor = db.cursor()
+
+    update_query = ''' UPDATE users SET username = ? WHERE id = ? '''
+    updated_info = new_username, user_id
+
+    try:
+        cursor.execute(update_query, updated_info)
+        db.commit()
+        print("Username changed for user", user_id, "to", new_username)
+    except Error as e:
+        print(e, "  ***Update username query failed***")
+    finally:
+        db.close()
+
+
+# updates the role associated with user id
+def update_user_role(user_id, new_role):
+    db = get_db()
+    cursor = db.cursor()
+
+    update_query = ''' UPDATE users SET role = ? WHERE id = ? '''
+    updated_info = new_role, user_id
+
+    try:
+        cursor.execute(update_query, updated_info)
+        db.commit()
+        print("Role changed for user", user_id, "to", new_role)
+    except Error as e:
+        print(e, "  ***Update role query failed***")
+    finally:
+        db.close()
 
 
 # Update user points based on a value change
@@ -129,7 +166,12 @@ def update_user_points(user_id, points_val_change):
         db.close()
 
 
-# Delete user record by quering id
+'''
+DELETE FUNCTION
+'''
+
+
+# Delete user record by querying id
 def delete_user(user_id):
     db = get_db()
     cursor = db.cursor()
@@ -143,6 +185,22 @@ def delete_user(user_id):
         print(e, "Delete failed!")
     finally:
         db.close()
+
+
+'''
+TERTIARY FUNCTIONS
+'''
+
+
+# Validation function to confirm if user exists in DB
+def user_exists(cursor, user_id):
+    query = ''' SELECT id FROM users WHERE id=? '''
+    cursor.execute(query, (user_id,))
+    results = cursor.fetchone()
+    if results:
+        return True
+    else:
+        return False
 
 
 

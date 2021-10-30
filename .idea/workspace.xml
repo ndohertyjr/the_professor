@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Reorganized file structure to add model and controller directories.  Created model for db and user table.  Added unfinished controller functions.">
-      <change afterPath="$PROJECT_DIR$/controllers/user_table.py" afterDir="false" />
+    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Create controller for the Users table in the databases.  Implemented functions:&#10;add_user&#10;user_exists&#10;get_user_id&#10;get_all_usernames&#10;get_username&#10;get_user_role&#10;get_user_points&#10;update_user_points&#10;delete_user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/userTable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/jokes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/jokes.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/database.py" afterDir="false" />
     </list>

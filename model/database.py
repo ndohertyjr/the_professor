@@ -46,6 +46,29 @@ def create_user_table():
             db.close()
 
 
+# create jokes table if it doesn't exist
+def create_jokes_table():
+    try:
+        db = sqlite3.connect(DATABASE_NAME)
+        cursor = db.cursor()
+
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS jokes(
+                id INTEGER PRIMARY KEY,
+                joke TEXT
+            )
+        ''')
+        db.commit()
+        print("JOKES TABLE CREATED")
+
+    except Error as e:
+        print(e, "***JOKE TABLE FAILED TO BE BORN***")
+
+    finally:
+        if db:
+            db.close()
+
+
 # Returns db connection for controllers
 def get_db():
     try:
