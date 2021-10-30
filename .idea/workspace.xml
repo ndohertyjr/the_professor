@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Merging database and API branch with main">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Ignoring .db files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +174,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635615524909</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ignoring .db files">
+      <created>1635625285785</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1635625285785</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Ignoring .db files">
+      <created>1635625383512</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1635625383512</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +223,7 @@
     <MESSAGE value="Reorganized file structure to add model and controller directories.  Created model for db and user table.  Added unfinished controller functions." />
     <MESSAGE value="Updated model to include a Jokes table.  Created controller to handle access to Jokes table.  Implemented CRUD functions for Jokes controller. Created cog for SQL command testing." />
     <MESSAGE value="Updated example.env" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated example.env" />
+    <MESSAGE value="Ignoring .db files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ignoring .db files" />
   </component>
 </project>
