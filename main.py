@@ -52,12 +52,12 @@ bot.load_extension('cogs.sqlTesting')
 MAIN FUNCTIONS
 '''
 
+
 # Confirm bot is online
 @bot.event
 async def on_ready():
     print(f'{bot.user} is online and connected to the server.')
-    # Establish DB and tables
-    #db_init(bot, GUILD_ID)
+
 
 #FIXME
 # Keep thread open on the server

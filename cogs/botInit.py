@@ -1,6 +1,6 @@
-'''
-Methods to be run on intialization of the bot to the server
-'''
+"""
+Methods to be run on initialization of the bot to the server
+"""
 from discord import Guild, Client
 
 from model.database import *
@@ -30,6 +30,9 @@ def populate_user_database(bot):
         add_user(member.id, member.name, current_role_name, 0)
 
 
+def populate_jokes_database():
+    add_jokes()
+
 # Bot initialization to sync with current server data
 class BotInit(commands.Cog):
     def __init__(self, bot):
@@ -41,9 +44,9 @@ class BotInit(commands.Cog):
         create_roles_table()
         create_jokes_table()
         create_user_table()
-        add_jokes()
-        populate_user_database(self.bot)
         populate_roles_database(self.bot)
+        populate_user_database(self.bot)
+        populate_jokes_database()
 
 
 def setup(bot):
