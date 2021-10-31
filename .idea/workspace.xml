@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Initial branch push">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Created roles table for db.  Implemented CRUD functions for roles table.  Added roles table testing to sqlTesting cog.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/sqlTesting.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/sqlTesting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/jokesTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/jokesTable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/userTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/userTable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,11 +82,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\Python_Projects\TheProfessor\cogs" />
       <recent name="C:\Projects\Python_Projects\TheProfessor" />
       <recent name="C:\Projects\Python_Projects\TheProfessor\src" />
       <recent name="C:\Projects\Python_Projects\TheProfessor\model" />
       <recent name="C:\Projects\Python_Projects\TheProfessor\controllers" />
-      <recent name="C:\Projects\Python_Projects\TheProfessor\data" />
     </key>
   </component>
   <component name="RunManager">
@@ -202,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635636991479</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Created roles table for db.  Implemented CRUD functions for roles table.  Added roles table testing to sqlTesting cog.">
+      <created>1635655811055</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635655811055</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,6 +242,7 @@
     <MESSAGE value="Updated example.env" />
     <MESSAGE value="Ignoring .db files" />
     <MESSAGE value="Initial branch push" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial branch push" />
+    <MESSAGE value="Created roles table for db.  Implemented CRUD functions for roles table.  Added roles table testing to sqlTesting cog." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created roles table for db.  Implemented CRUD functions for roles table.  Added roles table testing to sqlTesting cog." />
   </component>
 </project>

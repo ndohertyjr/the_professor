@@ -10,9 +10,8 @@ import os
 
 # Server imports
 from server import keep_online
-from controllers.jokesTable import *
-from controllers.userTable import *
-from model.database import *
+#from controllers.botInit import db_init
+
 
 # load token
 load_dotenv('.env')
@@ -21,24 +20,15 @@ GUILD_ID = os.getenv("Guild_ID")
 RULES_MESSAGE_ID = os.getenv("RulesMessageId")
 intents = discord.Intents.default()
 intents.members = True
+intents.guilds = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-
-# Confirm bot is online
-@bot.event
-async def on_ready():
-    print(f'{bot.user} is online and connected to the server.')
-    # Establish DB and tables
-    create_connection()
-    create_user_table()
-    create_jokes_table()
-    create_roles_table()
-    add_jokes()
-
-
 ''' 
-****MAIN CODE BODY GOES BELOW HERE**** 
+****LOAD COGS BELOW HERE**** 
 '''
+
+# Bot initialization on ready
+bot.load_extension('cogs.botInit')
 
 # Admin
 bot.load_extension('cogs.admin')
@@ -58,8 +48,17 @@ bot.load_extension('cogs.githubHelp')
 # SQL DB testing commands
 bot.load_extension('cogs.sqlTesting')
 
+'''
+MAIN FUNCTIONS
+'''
 
-# ****MAIN CODE BODY GOES ABOVE HERE****
+# Confirm bot is online
+@bot.event
+async def on_ready():
+    print(f'{bot.user} is online and connected to the server.')
+    # Establish DB and tables
+    #db_init(bot, GUILD_ID)
+
 #FIXME
 # Keep thread open on the server
 keep_online()

@@ -23,7 +23,7 @@ def add_user(user_id, username, role, points):
     query = ''' INSERT INTO users(id,username,role,points)
                 VALUES(?,?,?,?) '''
     user = (user_id, username, role, points)
-    print("USER:", user)
+
     if user_exists(cursor, user_id):
         print("User already exists")
     else:
