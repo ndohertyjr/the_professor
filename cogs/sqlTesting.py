@@ -4,11 +4,13 @@ Commands should not be included in production environment
 '''
 
 # import discord api
-from  discord.ext import commands
+from discord.ext import commands
 
 # import methods
 from controllers.userTable import *
 from controllers.jokesTable import *
+from controllers.rolesTable import *
+
 
 class SQLTesting(commands.Cog):
 
@@ -42,11 +44,6 @@ class SQLTesting(commands.Cog):
     async def testfindone(self, ctx):
         print(get_username(3333))
 
-    # Find user role by ID
-    @commands.command()
-    async def testfindrole(self, ctx):
-        print(get_user_role(4444))
-
     # Find user's points by ID
     @commands.command()
     async def testfindpoints(self, ctx):
@@ -63,11 +60,6 @@ class SQLTesting(commands.Cog):
     @commands.command()
     async def testupdateuser(self, ctx):
         update_user_name(2222, "Captain Insaino")
-
-    # Update user role by ID
-    @commands.command()
-    async def testupdaterole(self, ctx):
-        update_user_role(3333, "Master and Commander of the Far Side of the Sea")
 
     # Delete all users
     @commands.command()
@@ -98,6 +90,41 @@ class SQLTesting(commands.Cog):
     @commands.command()
     async def testdeletejoke(self, ctx):
         delete_joke(18)
+
+    ''' *** ROLE TABLE COMMANDS *** '''
+
+    # Add role by ID
+    @commands.command()
+    async def testaddrole(self, ctx):
+        add_role(1234, "First")
+        add_role(2345, "Second")
+        add_role(3456, "Third")
+
+    # Find role by ID
+    @commands.command()
+    async def testfindrolename(self, ctx):
+        print(get_role_name(1234))
+
+    # Find role by name
+    @commands.command()
+    async def testfindroleid(self, ctx):
+        print(get_role_id("Second"))
+
+    # Find all roles
+    @commands.command()
+    async def testfindallroles(self, ctx):
+        for key, value in get_all_roles():
+            print("Role ID:", key, "Role name", value)
+
+    # Update role by ID
+    @commands.command()
+    async def testupdaterole(self, ctx):
+        update_role(3456, "Test 2")
+
+    # Delete role by ID
+    @commands.command()
+    async def testdeleterole(self, ctx):
+        delete_role(3456)
 
 
 def setup(bot):
