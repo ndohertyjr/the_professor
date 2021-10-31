@@ -5,6 +5,7 @@ A python bot built for moderating the Discord server for SNHU CS/IT/Cyber Securi
 
 * [Discord.py API Reference](https://discordpy.readthedocs.io/en/stable/api.html)
 * [Flask API Reference](https://flask.palletsprojects.com/en/2.0.x/)
+* [SQLite Reference](https://www.sqlite.org/docs.html)
 
 ## Contributing Guide
 
