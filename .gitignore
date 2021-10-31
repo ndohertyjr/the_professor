@@ -133,4 +133,4 @@ dmypy.json
 *.db
 
 # Intellij configs
-.idea
+*.idea
