@@ -23,18 +23,19 @@ def add_user(user_id, username, role, points):
     query = ''' INSERT INTO users(id,username,role,points)
                 VALUES(?,?,?,?) '''
     user = (user_id, username, role, points)
-
+    print("USER:", user)
     if user_exists(cursor, user_id):
         print("User already exists")
     else:
         try:
             cursor.execute(query, user)
-            print("Added!")
+            print("User added!")
             db.commit()
         except Error as e:
             print(e, "Failed to add user to DB")
 
-    db.close()
+    if db:
+        db.close()
 
 
 '''
@@ -46,7 +47,7 @@ READ FUNCTIONS
 def get_user_id(username):
     db = get_db()
     cursor = db.cursor()
-    query = ''' SELECT id FROM users WHERE username=? '''
+    query = ''' SELECT id FROM users WHERE username= ? '''
     cursor.execute(query, (username,))
     user_id = cursor.fetchone()[0]
     print(user_id)
@@ -81,18 +82,6 @@ def get_username(user_id):
     return username
 
 
-# Get user role by querying users unique id
-def get_user_role(user_id):
-    db = get_db()
-    cursor = db.cursor()
-    query = ''' SELECT role FROM users WHERE id=?'''
-    cursor.execute(query, (user_id,))
-    role = cursor.fetchone()[0]
-    db.close()
-
-    return role
-
-
 # Get user's current participation points based on query of their unique id
 def get_user_points(user_id):
     db = get_db()
@@ -125,25 +114,8 @@ def update_user_name(user_id, new_username):
     except Error as e:
         print(e, "  ***Update username query failed***")
     finally:
-        db.close()
-
-
-# updates the role associated with user id
-def update_user_role(user_id, new_role):
-    db = get_db()
-    cursor = db.cursor()
-
-    update_query = ''' UPDATE users SET role = ? WHERE id = ? '''
-    updated_info = new_role, user_id
-
-    try:
-        cursor.execute(update_query, updated_info)
-        db.commit()
-        print("Role changed for user", user_id, "to", new_role)
-    except Error as e:
-        print(e, "  ***Update role query failed***")
-    finally:
-        db.close()
+        if db:
+            db.close()
 
 
 # Update user points based on a value change
@@ -163,7 +135,8 @@ def update_user_points(user_id, points_val_change):
     except Error as e:
         print(e, "Update failed!")
     finally:
-        db.close()
+        if db:
+            db.close()
 
 
 '''
@@ -184,7 +157,8 @@ def delete_user(user_id):
     except Error as e:
         print(e, "Delete failed!")
     finally:
-        db.close()
+        if db:
+            db.close()
 
 
 '''
@@ -196,8 +170,8 @@ TERTIARY FUNCTIONS
 def user_exists(cursor, user_id):
     query = ''' SELECT id FROM users WHERE id=? '''
     cursor.execute(query, (user_id,))
-    results = cursor.fetchone()
-    if results:
+    result = cursor.fetchone()
+    if result:
         return True
     else:
         return False

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Ignoring .db files">
+    <list default="true" id="52dfd4df-1258-432b-a4e4-712d9c618dc3" name="Default Changelist" comment="Initial branch push">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/sqlTesting.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/sqlTesting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/jokesTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/jokesTable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/userTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/userTable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +87,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\Python_Projects\TheProfessor" />
+      <recent name="C:\Projects\Python_Projects\TheProfessor\src" />
       <recent name="C:\Projects\Python_Projects\TheProfessor\model" />
       <recent name="C:\Projects\Python_Projects\TheProfessor\controllers" />
       <recent name="C:\Projects\Python_Projects\TheProfessor\data" />
@@ -99,7 +106,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Projects\Python_Projects\TheProfessor\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635625383512</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Initial branch push">
+      <created>1635636991479</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1635636991479</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,7 +216,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="databaseAndAPI" />
+                        <option value="addUsersToDB" />
                       </list>
                     </value>
                   </entry>
@@ -224,6 +238,7 @@
     <MESSAGE value="Updated model to include a Jokes table.  Created controller to handle access to Jokes table.  Implemented CRUD functions for Jokes controller. Created cog for SQL command testing." />
     <MESSAGE value="Updated example.env" />
     <MESSAGE value="Ignoring .db files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ignoring .db files" />
+    <MESSAGE value="Initial branch push" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial branch push" />
   </component>
 </project>

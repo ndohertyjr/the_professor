@@ -38,7 +38,8 @@ def add_jokes():
             except Error as e:
                 print(e, "Failed to add joke to DB")
 
-    db.close()
+    if db:
+        db.close()
 
 
 '''
@@ -97,7 +98,8 @@ def update_one_joke(joke_id, joke):
     except Error as e:
         print(e, "  ***Update joke query failed***")
     finally:
-        db.close()
+        if db:
+            db.close()
 
 
 '''
@@ -118,7 +120,8 @@ def delete_joke(joke_id):
     except Error as e:
         print(e, "Delete failed!")
     finally:
-        db.close()
+        if db:
+            db.close()
 
 
 '''
@@ -130,8 +133,8 @@ TERTIARY FUNCTIONS
 def joke_exists(cursor, joke):
     query = ''' SELECT joke FROM jokes WHERE joke=? '''
     cursor.execute(query, (joke,))
-    results = cursor.fetchone()
-    if results:
+    result = cursor.fetchone()
+    if result:
         return True
     else:
         return False

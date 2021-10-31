@@ -22,7 +22,7 @@ def create_connection():
             db.close()
 
 
-# Create tables if they don't exist
+# Create user table if it doesn't exist
 def create_user_table():
     try:
         db = sqlite3.connect(DATABASE_NAME)
@@ -31,8 +31,8 @@ def create_user_table():
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS users(
                 id INTEGER PRIMARY KEY,
-                username TEXT,
-                role TEXT,
+                username VARCHAR(100),
+                role VARCHAR(100),
                 points INTEGER
             )    
         ''')
@@ -40,7 +40,29 @@ def create_user_table():
         print("USER TABLE EXISTS!")
 
     except Error as e:
-        print(e)
+        print(e, "***USERS TABLE FAILED TO BE BORN***")
+    finally:
+        if db:
+            db.close()
+
+
+# Create roles table if it doesn't exist
+def create_roles_table():
+    try:
+        db = sqlite3.connect(DATABASE_NAME)
+        cursor = db.cursor()
+
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS roles(
+                id INTEGER PRIMARY KEY,
+                role VARCHAR(100)
+            )    
+        ''')
+        db.commit()
+        print("ROLES TABLE EXISTS!")
+
+    except Error as e:
+        print(e, "***ROLE TABLE FAILED TO BE BORN***")
     finally:
         if db:
             db.close()
@@ -59,7 +81,7 @@ def create_jokes_table():
             )
         ''')
         db.commit()
-        print("JOKES TABLE CREATED")
+        print("JOKES TABLE EXISTS")
 
     except Error as e:
         print(e, "***JOKE TABLE FAILED TO BE BORN***")
