@@ -87,6 +87,7 @@ def get_user_points(user_id):
     db = get_db()
     cursor = db.cursor()
     query = ''' SELECT points FROM users WHERE id=?'''
+    print(user_id, "in get_user_points")
     cursor.execute(query, (user_id,))
     points = cursor.fetchone()[0]
     db.close()
@@ -134,6 +135,23 @@ def update_user_points(user_id, points_val_change):
         print("Point value updated!")
     except Error as e:
         print(e, "Update failed!")
+    finally:
+        if db:
+            db.close()
+
+
+def increment_points(user_id):
+    db = get_db()
+    cursor = db.cursor()
+
+    update_query = ''' UPDATE users SET points = points + 1 WHERE id = ? '''
+
+    try:
+        cursor.execute(update_query, (user_id,))
+        db.commit()
+        print("Incremented points by 1")
+    except Error as e:
+        print(e, "Increment failed!")
     finally:
         if db:
             db.close()

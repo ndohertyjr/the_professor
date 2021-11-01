@@ -48,6 +48,9 @@ bot.load_extension('cogs.githubHelp')
 # SQL DB testing commands
 bot.load_extension('cogs.sqlTesting')
 
+# User engagement cog
+bot.load_extension('cogs.userEngagement')
+
 '''
 MAIN FUNCTIONS
 '''

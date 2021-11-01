@@ -30,8 +30,8 @@ def populate_user_database(bot):
         add_user(member.id, member.name, current_role_name, 0)
 
 
-def populate_jokes_database():
-    add_jokes()
+
+
 
 # Bot initialization to sync with current server data
 class BotInit(commands.Cog):
@@ -46,7 +46,7 @@ class BotInit(commands.Cog):
         create_user_table()
         populate_roles_database(self.bot)
         populate_user_database(self.bot)
-        populate_jokes_database()
+        add_jokes()
 
 
 def setup(bot):
