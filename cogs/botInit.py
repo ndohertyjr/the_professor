@@ -14,18 +14,11 @@ from discord import Role
 from main import GUILD_ID
 
 
-# Populate roles database from current server roles
-def populate_roles_database(bot):
-#FIXME CHANGE IT MONGO YOU DUMB SHIT
-    for guild in bot.guilds:
-        if str(guild.id) == GUILD_ID:
-            for role in guild.roles:
-                add_role(role.id, role.name)
-
-
 # Populate users SQL database from current server members
 def populate_user_database_SQL(bot):
     for member in bot.get_all_members():
+        if bot.geti== member.id:
+            print("test")
         for all_roles in member.roles:
             current_role_name = all_roles.name
 
@@ -36,14 +29,16 @@ def populate_user_database_SQL(bot):
 def populate_user_database_Mongo(bot):
     for member in bot.get_all_members():
         add_user_mongo(member.id, member.name, 0)
+        for role in member.roles:
+            add_new_user_role(member.id, role.id, role.name)
 
-
+'''
 def assign_member_roles(bot):
     for guild in bot.guilds:
         if str(guild.id) == GUILD_ID:
             for role in guild.roles:
                 pass
-
+'''
 
 # Bot initialization to sync with current server data
 class BotInit(commands.Cog):
