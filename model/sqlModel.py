@@ -1,10 +1,13 @@
 # Database controller class
 # API will check if DB exists, if not it will create DB and required tables
-
+# FIXME REMOVE SQL
 import sqlite3
 from sqlite3 import Error
 
+
+
 # db path
+
 DATABASE_NAME = "theProfessor.db"
 
 
@@ -55,7 +58,8 @@ def create_roles_table():
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS roles(
                 id INTEGER PRIMARY KEY,
-                role VARCHAR(100)
+                role VARCHAR(100), 
+                maxPtsForRole int
             )    
         ''')
         db.commit()

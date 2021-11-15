@@ -1,6 +1,6 @@
 # Joke table controller class
 
-from model.database import get_db
+from model.sqlModel import get_db
 from sqlite3 import Error
 import random
 import json
@@ -29,7 +29,8 @@ def add_jokes():
         joke_object = joke_id, joke
 
         if joke_exists(cursor, joke):
-            print("Joke already exists")
+            # print("Joke already exists")
+            pass
         else:
             try:
                 cursor.execute(query, joke_object)

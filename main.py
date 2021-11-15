@@ -45,8 +45,9 @@ bot.load_extension('cogs.jokeDispenser')
 # Github help command
 bot.load_extension('cogs.githubHelp')
 
-# SQL DB testing commands
+# DB testing commands
 bot.load_extension('cogs.sqlTesting')
+bot.load_extension('cogs.mongoTesting')
 
 # User engagement cog
 bot.load_extension('cogs.userEngagement')

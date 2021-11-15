@@ -1,10 +1,10 @@
 # Roles table controller class
 
-from model.database import get_db
+from model.sqlModel import get_db
 from sqlite3 import Error
 
 '''
-Controls access to the jokes table in the database
+Controls access to the roles table in the database
 '''
 
 
@@ -13,20 +13,20 @@ CREATE functions
 '''
 
 
-def add_role(role_id, role_name):
+def add_role(role_id, role_name, role_max_pts):
     db = get_db()
     cursor = db.cursor()
 
-    query = ''' INSERT INTO roles(id, role)
-                VALUES(?,?) '''
+    query = ''' INSERT INTO roles(id, role, maxPtsForRole)
+                VALUES(?,?,?) '''
 
-    role_data = role_id, role_name
+    role_data = role_id, role_name, role_max_pts
 
     if role_exists(cursor, role_id):
         print("Role already exists")
     else:
         try:
-            cursor.execute(query, role_data)
+            cursor.execute(query, role_data, role_max_pts)
             print("Role added!")
             db.commit()
         except Error as e:
@@ -78,6 +78,17 @@ def get_all_roles():
 
     return all_roles
 
+
+# Get role max points by querying role's unique id
+def get_role_max_pts(role_id):
+    db = get_db()
+    cursor = db.cursor()
+    query = ''' SELECT maxPtsForRole FROM roles WHERE id = ? '''
+    cursor.execute(query, (role_id,))
+    role = cursor.fetchone()[0]
+    db.close()
+
+    return role
 
 '''
 UPDATE FUNCTIONS

@@ -1,6 +1,6 @@
 # Database controller class
 
-from model.database import get_db
+from model.sqlModel import get_db
 from sqlite3 import Error
 
 
@@ -25,7 +25,8 @@ def add_user(user_id, username, role, points):
     user = (user_id, username, role, points)
 
     if user_exists(cursor, user_id):
-        print("User already exists")
+        pass
+        #print("User already exists")
     else:
         try:
             cursor.execute(query, user)
@@ -140,23 +141,6 @@ def update_user_points(user_id, points_val_change):
             db.close()
 
 
-def increment_points(user_id):
-    db = get_db()
-    cursor = db.cursor()
-
-    update_query = ''' UPDATE users SET points = points + 1 WHERE id = ? '''
-
-    try:
-        cursor.execute(update_query, (user_id,))
-        db.commit()
-        print("Incremented points by 1")
-    except Error as e:
-        print(e, "Increment failed!")
-    finally:
-        if db:
-            db.close()
-
-
 '''
 DELETE FUNCTION
 '''
@@ -194,6 +178,22 @@ def user_exists(cursor, user_id):
     else:
         return False
 
+
+def increment_points(user_id):
+    db = get_db()
+    cursor = db.cursor()
+
+    update_query = ''' UPDATE users SET points = points + 1 WHERE id = ? '''
+
+    try:
+        cursor.execute(update_query, (user_id,))
+        db.commit()
+        print("Incremented points by 1")
+    except Error as e:
+        print(e, "Increment failed!")
+    finally:
+        if db:
+            db.close()
 
 
 

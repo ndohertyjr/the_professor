@@ -96,9 +96,9 @@ class SQLTesting(commands.Cog):
     # Add role by ID
     @commands.command()
     async def testaddrole(self, ctx):
-        add_role(1234, "First")
-        add_role(2345, "Second")
-        add_role(3456, "Third")
+        add_role(1234, "First", 10)
+        add_role(2345, "Second", 25)
+        add_role(3456, "Third", 50)
 
     # Find role by ID
     @commands.command()
@@ -115,6 +115,11 @@ class SQLTesting(commands.Cog):
     async def testfindallroles(self, ctx):
         for key, value in get_all_roles():
             print("Role ID:", key, "Role name", value)
+
+    # Find all roles
+    @commands.command()
+    async def testfindmaxpts(self, ctx):
+        get_role_max_pts(2345)
 
     # Update role by ID
     @commands.command()
